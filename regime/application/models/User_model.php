@@ -20,6 +20,24 @@
                 throw new Exception('Nom d\'utilisateur incorrect');
             }
         }
+        
+        public function signup($nom, $email, $mdp, $genre, $taille, $poids) {
+            $data = array(
+                'nom' => $nom,
+                'email' => $email,
+                'mdp' => $mdp,
+                'genre' => $genre,
+                'taille' => $taille,
+                'poids' => $poids
+            );
+        
+            // Assuming that you have a database table associated with the model, you can insert the data.
+            $this->db->insert($this->table, $data);
+        
+            // Optionally, you can return the inserted user data or a success message.
+            // For example, if you have an auto-incremented ID field, you can return the inserted user ID.
+            return $this->db->insert_id();
+        }
 
         // Récupère tous les utilisateurs
         public function findAll() {
