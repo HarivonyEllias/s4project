@@ -1,27 +1,26 @@
 <html>
 <head>
-<title> Login Page</title>
+<title>Inscription</title>
 <style>
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .login-page {
-  width: 700px;
-  padding: 1% 0 0;
+  width: 1200px;
+ 
   margin: auto;
 }
 .form { 
-  height:360px;
-  width: 700px;
+ 
+  width: 1200px;
   position: relative;
   z-index: 1;
-  background: rgba(0, 0, 0, 0.752);
+  background: rgba(0, 0, 0, 0.452);
   border-radius: 10px;
-  max-width: 560px;
+  max-width: 860px;
   margin: 0 auto 100px;
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  margin-top:45px;
 }
 .form input {
   font-family: "Roboto", sans-serif;
@@ -64,7 +63,7 @@
   text-decoration: none;
 }
 .form .message a:hover{
-color: Blue;
+color: #76b852;
 }
 .form .register-form {
   display: none;
@@ -100,7 +99,7 @@ color: Blue;
   text-decoration: none;
 }
 .container .info span .fa {
-  color: #f67206;
+  color: #EF3B3A;
 }
 
 
@@ -177,7 +176,7 @@ h1 {
 }
 
 .agileits-top p a:hover {
-  color: blue;
+  color: #76b852;
 }
 
 /*-- //main --*/
@@ -265,7 +264,7 @@ h1 {
   display: block;
   width: 40px;
   height: 40px;
-  background-color: rgba(254, 112, 10, 0.755);
+  background-color: rgba(61, 180, 52, 0.411);
   bottom: -160px;
   -webkit-animation: square 20s infinite;
   -moz-animation: square 250s infinite;
@@ -321,7 +320,7 @@ h1 {
   -o-animation-duration: 22s;
   -ms-animation-duration: 22s;
   animation-duration: 22s;
-  background-color: #d74825cf;
+  background-color: rgba(194, 129, 32, 0.59);
 }
 
 .colorlib-bubbles li:nth-child(5) {
@@ -337,7 +336,7 @@ h1 {
   -o-animation-delay: 3s;
   -ms-animation-delay: 3s;
   animation-delay: 3s;
-  background-color: #27b811a7;
+  background-color: rgba(223, 57, 57, 0.2);
 }
 
 .colorlib-bubbles li:nth-child(7) {
@@ -365,24 +364,13 @@ h1 {
 
 .colorlib-bubbles li:nth-child(9) {
   left: 25%;
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   -webkit-animation-delay: 2s;
   animation-delay: 2s;
   -webkit-animation-duration: 40s;
   animation-duration: 40s;
-  background-color: #27b811;
-  /* left: 80%;
-  width: 120px;
-  height: 120px;
-  -webkit-animation-delay: 3s;
-  -moz-animation-delay: 3s;
-  -o-animation-delay: 3s;
-  -ms-animation-delay: 3s;
-  animation-delay: 3s;
-  background-color: #27b811;
-  border-radius: 0% 0% 50% 50% / 60% 60% 40% 40%;
-  transform: rotate(-30deg); */
+  background-color: rgba(15, 69, 218, 0.3);
 }
 
 .colorlib-bubbles li:nth-child(10) {
@@ -437,23 +425,27 @@ $('.message a').click(function(){
 </script>
 
 </head>
-<body style="background-image: url('<?php echo site_url('assets/images/loginbg.jpg') ?>');">
-<div class="login-page">
-  <div class="titre" style="text-align: center; font-size: 40px;color: #282828;
+<body  style="background-image: url('<?php echo site_url('assets/images/loginbg.jpg') ?>');">
+<div class="login-page"> 
+    <div class="titre" style="text-align: center; font-size: 40px;color: #282828;
   -webkit-font-smoothing: antialiased; margin-bottom: 20px;">
-   <h2> Bienvenue! </h2>
-  </div>
-  <div class="form">
-    <p style="color:white">Veuillez vous connecter.</p>
-    <form class="login-form"  method="get" action="<?php echo site_url('user/login') ?>">
-      <input type="text" placeholder="Email" name="email" value="harivonyellias@yahoo.com" style="border-radius: 10px;" required/>
-      <input type="password" placeholder="Mot de passe" value="ellias" name="password" style="border-radius: 10px;" required/>
-      <?php if (!empty($error_message)) : ?>
-        <div class="" style="background-color: darksalmon;color:white;border-radius: 5px;"><?php echo $error_message; ?></div>
-      <?php endif; ?>
-      <button style="border-radius: 10px; margin-top: 25px;background-color: #fd7e14;">login</button>
-      <p class="message">Vous n'avez pas de compte? <a href="<?php echo site_url('SignUpredirect/index') ?>">Creer un compte</a></p>
-      <p><a style="color: #27b811;font-size: 16pt;" href="<?php echo site_url('Regime_controller') ?>">Etes vous Admin?</a></p>
+        <h2> Inscription </h2>
+    </div>
+    <div class="form">
+    <p style="color:white">Veuillez vous inscrire pour beneficier de nos services.</p>
+    <form class="login-form" method="post" action="<?php echo site_url('user/signup') ?>">
+      <input type="text"  id="nom" name="nom" placeholder="Nom" required style="border-radius: 10px;"/>
+      <input type="text" id="email" name="email" placeholder="Email" style="border-radius: 10px;" required/>
+      <input type="password" name="password" placeholder="password" style="border-radius: 10px;" required/>
+      <select name="genre" placeholder="genre" id="genre" style="width: 100%;height: 50px;border-radius: 10px;margin:1.5% 0 0 0 ">
+        <option value="M" disabled selected>Genre</option>
+        <option value="M">Masculin</option>
+        <option value="F">Feminin</option>
+      </select>
+      <input type="text" name="taille" placeholder="taille" style="border-radius: 10px;" required/>
+      <input type="text" name="poids" placeholder="poids" style="border-radius: 10px;" required/>
+      <button style="border-radius: 10px; margin-top: 50px;">S'inscrire</button>
+      <p class="message">Vous avez un compte? <a href="<?php echo site_url('LoginR/index') ?>">Se connecter</a></p>
     </form>
   </div>
 </div>

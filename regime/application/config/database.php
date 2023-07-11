@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mysql-48hs4.alwaysdata.net',
-	'username' => '48hs4',
-	'password' => 'alwaysdata!',
-	'database' => '48hs4_regime',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'regime',
 	'dbdriver' => 'mysqli',
 	'port'	=> 3306,
 	'dbprefix' => '',

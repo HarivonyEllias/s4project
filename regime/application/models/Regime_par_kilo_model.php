@@ -1,8 +1,8 @@
 <?php
     if(!defined('BASEPATH')) exit('No direct script access allowed');
-    class User_model extends CI_Model {
+    class Regime_par_kilo_model extends CI_Model {
         // Nom de la table dans la base de données
-        private $table = 'utilisateur';
+        private $table = 'regime_par_kilo';
         
         // Vérifie les informations de connexion de l'utilisateur
         public function login($email, $mdp) {
@@ -19,24 +19,6 @@
             } else {
                 throw new Exception('Nom d\'utilisateur incorrect');
             }
-        }
-
-        public function getLastObjectifUtilisateur($user) {
-            $this->db->select('*');
-            $this->db->from('objectif_utilisateur');
-            $this->db->where('idutilisateur',$user->id);
-            $this->db->order_by('id', 'DESC');
-            $this->db->limit(1);
-            return $this->db->get()->row();
-        }
-        
-        public function getLastPropositionUtilisateur($user) {
-            $this->db->select('*');
-            $this->db->from('proposition');
-            $this->db->where('idutilisateur',$user->id);
-            $this->db->order_by('id', 'DESC');
-            $this->db->limit(1);
-            return $this->db->get()->row();
         }
         
         public function signup($nom, $email, $mdp, $genre, $taille, $poids) {
@@ -61,6 +43,11 @@
         public function findAll() {
             return $this->db->get($this->table)->result();
         }
+
+        // Récupère tous les utilisateurs par rapport aux criteres
+        public function findByCritere($data) {
+            return $this->db->get_where( $this->table, $data )->row();
+        }
         
         // Récupère un utilisateur par son ID
         public function findById($id) {
@@ -69,8 +56,7 @@
         
         // Crée un nouvel utilisateur
         public function create($data) {
-            $this->db->insert($this->table, $data);
-            return $this->db->insert_id();
+            return $this->db->insert($this->table, $data);
         }
         
         // Met à jour un utilisateur
@@ -84,6 +70,5 @@
             $this->db->where('id', $id);
             return $this->db->update($this->table, array('state' => 1));
         }
-
     }
 ?>

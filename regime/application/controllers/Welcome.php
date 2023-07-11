@@ -51,9 +51,9 @@ class Welcome extends CI_Controller {
 
 	function about() {
 		// définition des données variables du template
-		$data['title'] = 'Tiavina\'s page';
-		$data['description'] = 'Page created by Tiavina';
-		$data['keywords'] = 'Tiavina, Malalaniaina';
+		$data['title'] = '48hs4\'s page';
+		$data['description'] = 'Page created by 48hs4';
+		$data['keywords'] = '48hs4, Regime';
 		// on charge la view qui contient le corps de la page
 		$data['contents'] = 'welcome_message';
 		// on charge la page dans le template
